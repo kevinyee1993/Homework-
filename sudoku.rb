@@ -9,10 +9,12 @@ puts "Does this approach feel familiar?  The approach is a version of binary sea
 require_relative "board"
 
 class SudokuGame
+
   def self.from_file(filename)
     board = Board.from_file(filename)
     self.new(board)
   end
+
 
   def initialize(board)
     @board = board
@@ -35,7 +37,7 @@ class SudokuGame
     end
     pos
   end
-
+  
   def get_val
     val = nil
     until val && valid_val?(val)
@@ -84,8 +86,8 @@ class SudokuGame
 
   private
   attr_reader :board
-end
 
+end
 
 game = SudokuGame.from_file("puzzles/sudoku1.txt")
 game.run
